@@ -1,0 +1,25 @@
+meta {
+  name: new transaction
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5001/api/transactions
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  "user_id":"456",
+    "title":"Salary",
+    "category":"iNCOME",
+    "amount":4000
+  
+  }
+}
+
+settings {
+  encodeUrl: true
+}
