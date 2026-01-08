@@ -51,12 +51,41 @@ const coffeeTheme = {
     shadow: "#000000",
   };
   
+  // constants/colors.js
+const midnightTheme = {
+  primary: "#2563EB",        // Blue-600 (main actions, buttons)
+  background: "#F8FAFC",     // Slate-50 (soft light background)
+  text: "#0F172A",           // Slate-900 (main text)
+  border: "#E2E8F0",         // Slate-200 (borders, dividers)
+  white: "#FFFFFF",
+  textLight: "#64748B",      // Slate-500 (secondary text)
+  expense: "#DC2626",        // Red-600 (clear expense)
+  income: "#16A34A",         // Green-600 (clear income)
+  card: "#FFFFFF",           // Card background
+  shadow: "#000000",
+};
+
+const midnightDarkTheme = {
+  primary: "#3B82F6",
+  background: "#020617",
+  text: "#E5E7EB",
+  border: "#1E293B",
+  white: "#020617",
+  textLight: "#94A3B8",
+  expense: "#F87171",
+  income: "#4ADE80",
+  card: "#020617",
+  shadow: "#000000",
+};
+
   export const THEMES = {
     coffee: coffeeTheme,
     forest: forestTheme,
     purple: purpleTheme,
     ocean: oceanTheme,
+    midnight: midnightTheme,
+    midnightDarkTheme:midnightDarkTheme
   };
   
   // 👇 change this to switch theme
-  export const COLORS = THEMES.forest;
+  export const COLORS = THEMES.midnight;

@@ -12,7 +12,7 @@ export async function getTransactionByUserId(req,res){
                 return res.status(400).json({ message: "No transaction found" });
             }
     
-            res.status(200).json({ message: "Transaction fetched successfully", data: result });
+            res.status(200).json(result);
         } catch (error) {
             console.error("Error fetching the transactions: ", error);
             res.status(500).json("Internal Server Error");

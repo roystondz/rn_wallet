@@ -30,11 +30,7 @@ export default function Page() {
       if (signInAttempt.status === 'complete') {
         await setActive({ session: signInAttempt.createdSessionId })
         router.replace('/')
-      } else {
-        // If the status isn't complete, check why. User might need to
-        // complete further steps.
-        console.error(JSON.stringify(signInAttempt, null, 2))
-      }
+      } 
     } catch (err) {
       if(err.errors?.[0]?.code==="form_password_incorrect"){
         setError("Incorrect password. Please try again.")
@@ -53,7 +49,7 @@ export default function Page() {
       extraScrollHeight={150}
     >
       <View style={styles.container}>
-        <Image source={require('../../assets/images/Revenue Chart.png')} style={styles.illustration} />
+        <Image source={require('../../assets/images/landing.png')} style={styles.illustration} />
 
         {
             error?

@@ -11,7 +11,8 @@ export default function RootLayout() {
 const scheme = useColorScheme();
   return <ClerkProvider tokenCache={tokenCache}>
     <SafeScreen>
-    <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+    
       <Slot /></SafeScreen>
+      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
   </ClerkProvider>
 }

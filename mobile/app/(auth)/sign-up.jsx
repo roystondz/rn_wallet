@@ -35,13 +35,11 @@ export default function SignUpScreen() {
       // and capture OTP code
       setPendingVerification(true)
     } catch (err) {
-      if(err.errors?.[0]?.code==="form_identifier_exits"){
-        setError("An account with this email already exists.")
-      }else if(err.errors?.[0]?.code==="form_password_too_weak"){
-        setError("Password is too weak. Please choose a stronger password.")
-
+      if (err.errors?.[0]?.code === "form_identifier_exists") {
+        setError("An account with this email already exists.");
       }else{
-        setError("Failed to sign up. Try again later.")
+       
+        setError(err.errors?.[0]?.code);
       }
     }
   }
@@ -62,9 +60,10 @@ export default function SignUpScreen() {
         await setActive({ session: signUpAttempt.createdSessionId })
         router.replace('/')
       } else {
-        // If the status is not complete, check why. User may need to
-        // complete further steps.
-        console.error(JSON.stringify(signUpAttempt, null, 2))
+        if (signUpAttempt.status === "complete") {
+          await setActive({ session: signUpAttempt.createdSessionId });
+          router.replace("/");
+        }
       }
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
@@ -114,7 +113,7 @@ export default function SignUpScreen() {
     extraScrollHeight={150}
     >
       <View style={styles.container}>
-        <Image source={require('../../assets/images/Revenue Chart.png')} style={styles.illustration} />
+        <Image source={require('../../assets/images/landing.png')} style={styles.illustration} />
       
         <Text style={styles.title}>Create Account</Text>
         {

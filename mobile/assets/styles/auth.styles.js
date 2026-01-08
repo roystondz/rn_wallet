@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     height: 310,
     width: 300,
     resizeMode: "contain",
+    alignSelf: "center",
   },
   title: {
     fontSize: 32,
